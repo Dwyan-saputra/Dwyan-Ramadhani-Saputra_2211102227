@@ -12,17 +12,46 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("GridView Example")),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Container(
-            margin: const EdgeInsets.all(10.0),
-            color: const Color.fromARGB(255, 117, 117, 117)RGB(255, 86, 86, 85),
-            width: 48.0,
-            height: 48.0,
-          ),
-        ),
+        appBar: AppBar(title: Text("Size box Example")),
+        body: MyStackWidget(),
       ),
     );
+  }
+}
+
+class MyStackWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+width: 250,
+height: 250,
+child: Stack(
+children: <Widget>[
+Container(
+width: 250,
+height: 250,color: Colors.white,
+),
+Container(
+padding: const EdgeInsets.all(5.0),
+alignment: Alignment.bottomCenter,
+decoration: BoxDecoration(
+gradient: LinearGradient(
+begin: Alignment.topCenter,
+end: Alignment.bottomCenter,
+colors: <Color>[
+Colors.black.withAlpha(0),
+Colors.black12,
+Colors.black45
+],
+),
+),
+child: const Text(
+'Foreground Text',
+style: TextStyle(color: Colors.white, fontSize: 20.0),
+),
+),
+],
+),
+);
   }
 }
